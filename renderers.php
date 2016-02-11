@@ -1692,7 +1692,7 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
                     $contentimages .= html_writer::link($link, html_writer::empty_tag('img', array('src' => $url)));
                     $contentimages .= html_writer::end_tag('div');
                 } else {
-                    $contentimages .= "<div class='cimbox' style='background: #FFF url($url) no-repeat center center;
+                    $contentimages .= "<div class='cimbox' style='background: url($url) no-repeat center center;
                                                                   background-size: contain;'></div>";
                 }
             } else {
@@ -1707,7 +1707,7 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
         if (strlen($contentimages) == 0 && $type == 2) {
             // Default image.
             $url = $PAGE->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
-            $contentimages .= "<div class='cimbox' style='background: #FFF url($url) no-repeat center center;
+            $contentimages .= "<div class='cimbox' style='background: url($url) no-repeat center center;
                                                           background-size: contain;'></div>";
         }
         $content .= $contentimages. $contentfiles;
