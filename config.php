@@ -24,7 +24,7 @@
  *
  */
 
-$THEME->name = 'adaptable';
+$THEME->name = 'adaptable'; // si on change ça, ça pète tout :) penser à lire le tuto pour forker un thème
 $THEME->doctype = 'html5';
 $THEME->parents = array('bootstrapbase');
 $THEME->sheets = array('adaptable', 'blocks', 'menu', 'course', 'slider', 'extras', 'zoom', 'button', 'custom');
