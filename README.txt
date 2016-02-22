@@ -27,6 +27,10 @@ settings and play with it afterwards.
 With a little time you should be able to setup an attractive Moodle site with a high degree of
 individuality without without knowing any CSS.
 
+# 2016-02-22
+This is a fork of Adaptable theme, by Tela Botanica
+Ceci est un "fork" du thème Adaptable, par Tela Botanica
+
 
 ======================================
 HTML code for settings and block areas

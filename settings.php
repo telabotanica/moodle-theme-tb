@@ -32,7 +32,7 @@ defined('MOODLE_INTERNAL') || die;
 if (is_siteadmin()) {
     // Adaptable theme settings page.
     global $PAGE;
-    $ADMIN->add('themes', new admin_category('theme_adaptable', 'Adaptable'));
+    $ADMIN->add('themes', new admin_category('theme_adaptable', 'Tela Botanica (Adaptable)'));
 
     include(dirname(__FILE__) . '/settings/array_definitions.php');
     include(dirname(__FILE__) . '/settings/colors.php');
