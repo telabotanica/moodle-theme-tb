@@ -1,3 +1,51 @@
 /* Custom CSS Settings
 -------------------------*/
 [[setting:customcss]]
+
+/* suppression de la colonne de gauche dans la page d'inscription / resume du cours */
+#page-enrol-index.format-onetopic .generalbox .coursebox .info,
+#page-enrol-index.format-onetopic .generalbox .coursebox .content .courseimage {
+    display: none;
+}
+#page-enrol-index.format-onetopic .generalbox .coursebox .content .summary {
+    width: auto;
+}
+
+#navwrap {
+	display:none;
+}
+
+body {
+	font-size: 1.2em;
+}
+
+#logo {
+	max-width: none;
+	margin-bottom: 10px;
+}
+
+#completionprogressid {
+	display: none;
+}
+
+.modified {
+	display: none;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 0px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+} 
+
+#coursetitle {
+	display: none;
+}
