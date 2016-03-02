@@ -46,6 +46,20 @@ body {
 	height: 100%;
 } 
 
+/* puisque le titre de la PTF est inclus dans le logo (idée de m..de) */
 #coursetitle {
+	display: none;
+}
+
+/* le champ de recherche s'affichait sur 2 lignes en mode "écran de taille moyenne" */
+.search-box__button {
+	width: 25px;
+}
+
+/* cacher les groupes de champs "Noms supplémentaires" et "Facultatif" du formulaire d'inscription */
+#id_moodle_additional_names,
+#id_moodle_optional,
+#id_moodle_picture /* et aussi l'avatar, tant qu'on y est (empêche de voir les champs perso en dessous)*/
+{
 	display: none;
 }
