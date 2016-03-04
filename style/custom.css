@@ -63,3 +63,8 @@ body {
 {
 	display: none;
 }
+
+/* sous-titre des images de la galerie de la page d'accueil */
+.flex-caption h5 {
+	color: white;
+}
