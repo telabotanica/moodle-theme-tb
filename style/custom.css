@@ -68,3 +68,8 @@ body {
 .flex-caption h5 {
 	color: white;
 }
+
+.flex-caption {
+	padding: 10px 25px 1px 30px;
+	width: auto;
+}
