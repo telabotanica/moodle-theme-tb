@@ -91,11 +91,18 @@ body {
     height: 100%;
 }
 
-/* atto_morefontscolors est cassé avec Adaptable (carrés de couleur invisibles) */
+/* les plugins de couleur Atto sont cassés avec Adaptable (carrés de couleur invisibles) */
 /* voir le bug déclaré : https://bitbucket.org/covuni/moodle-theme_adaptable/issues/385/atto-plugins-dropdown-menus-broken */
 .atto_fontcolor_button .dropdown-menu {
     min-width: 50px;
 }
 .atto_backcolor_button .dropdown-menu {
     min-width: 50px;
+}
+
+.atto_morefontcolors_button .dropdown-menu {
+    min-width: pouet; /* mettre n'importe quoi annule la valeur incorrecte "inherit" "*/
+}
+.atto_morebackcolors_button .dropdown-menu {
+    min-width: pouet;
 }
