@@ -101,8 +101,8 @@ body {
 }
 
 .atto_morefontcolors_button .dropdown-menu {
-    min-width: pouet; /* mettre n'importe quoi annule la valeur incorrecte "inherit" "*/
+    min-width: 140px; /* @TODO trouver un vrai moyen d'annuler la valeur incorrecte "inherit" "*/
 }
 .atto_morebackcolors_button .dropdown-menu {
-    min-width: pouet;
+    min-width: 50px;
 }
