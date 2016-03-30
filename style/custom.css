@@ -58,8 +58,8 @@ body {
 
 /* cacher les groupes de champs "Noms supplémentaires" et "Facultatif" du formulaire d'inscription */
 #id_moodle_additional_names,
-#id_moodle_optional,
-#id_moodle_picture /* et aussi l'avatar, tant qu'on y est (empêche de voir les champs perso en dessous)*/
+#id_moodle_optional/*,
+#id_moodle_picture*/ /* et aussi l'avatar, tant qu'on y est (empêche de voir les champs perso en dessous)*/
 {
 	display: none;
 }
@@ -100,9 +100,58 @@ body {
     min-width: 50px;
 }
 
-.atto_morefontcolors_button .dropdown-menu {
-    min-width: 140px; /* @TODO trouver un vrai moyen d'annuler la valeur incorrecte "inherit" "*/
+/*.atto_morefontcolors_button .dropdown-menu {
+    min-width: 140px;
 }
 .atto_morebackcolors_button .dropdown-menu {
     min-width: 50px;
+}*/
+
+.usermenu2 {
+	display: none;
 }
+
+@media (max-width: 767px) {
+	/* navbar vide qui prend tout de même de l'espace vertical */
+	#page-navbar {
+		display: none;
+	}
+
+	/* citations CC du bandeau défilant */
+	.flex-caption {
+		width: auto !important;
+	}
+	.flex-caption > h5 {
+		font-size: 12px;
+		margin-right: 10px;
+		margin-left: 10px;
+		margin-bottom: 2px;
+	}
+}
+
+@media (max-width: 480px) {
+	.container.slidewrap {
+		display: none;
+	}
+}
+
+
+#theinfo-internal {
+	padding: 0;
+	text-align:center;
+	overflow: hidden;
+}
+
+.fond-gris {
+	background-color: #555;
+}
+
+#themessage-internal {
+	border: 1px solid grey;
+	padding: 0;
+	border-radius: 2px;
+	box-shadow: 0px 1px 2px #242424;
+	position: relative;
+	border: 5px solid #FFF;
+}
+

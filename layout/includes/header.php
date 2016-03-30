@@ -276,6 +276,15 @@ if (!isloggedin() || isguestuser()) {
     }
 ?>
 
+<!-- cochonaille -->
+<?php if ($CFG->messaging): ?>
+	<li>
+	<a href="<?php p($CFG->wwwroot) ?>/message/index.php" title="<?php echo get_string('messages', 'message') ?>">
+			<i class="fa fa-envelope"></i><?php echo get_string('messages', 'message') ?>
+	</a>
+	</li>
+<?php endif; ?>
+
 <?php
     if ($CFG->version > 2015051100) { ?>
         <li>

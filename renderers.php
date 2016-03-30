@@ -875,7 +875,9 @@ EOT;
     public function footer() {
         global $CFG;
 
-        $output = $this->container_end_all(true);
+        //$output = $this->container_end_all(true);
+		require_once($CFG->dirroot.'/blocks/navbuttons/footer.php');  // Add this line to enable the navigation buttons
+		$output = draw_navbuttons().$this->container_end_all(true);   // Change this line to enable the navigation buttons
 
         $footer = $this->opencontainers->pop('header/footer');
 
