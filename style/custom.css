@@ -172,3 +172,8 @@ body {
 .jsenabled .mform fieldset#id_category_1.collapsed .fcontainer {
     display: block;
 }
+
+/* augmentation de la hauteur du premier bandeau du "header" pour faire rentrer le bouton de connexion */
+#above-header {
+    height: 32px;
+}
