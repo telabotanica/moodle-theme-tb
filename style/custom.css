@@ -155,3 +155,10 @@ body {
 	border: 5px solid #FFF;
 }
 
+/* masque le message "Options d'inscription" dans le résumé du cours (pour les
+ * non-inscrits) - attention nécessite une modif dans le cœur de Moodle (c'est
+ * mal) : enrol/index.php ligne 95 (2016-04-01) => voir comment redéfinir
+ * proprement la page "enrol" dans le thème */
+#enrolment-options-heading {
+	display: none;
+}
