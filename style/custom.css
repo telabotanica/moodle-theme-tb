@@ -156,20 +156,16 @@ body {
 }
 
 /* masque le message "Options d'inscription" dans le résumé du cours (pour les
- * non-inscrits) - attention nécessite une modif dans le cœur de Moodle (c'est
- * mal) : enrol/index.php ligne 95 (2016-04-01) => voir comment redéfinir
- * proprement la page "enrol" dans le thème */
-#enrolment-options-heading {
-	display: none;
+ * non-inscrits) */
+#page-enrol-index h2 {
+    display: none;
 }
 
-/* tricherie pour "déplier" les champs supplémentaires des formulaires d'inscription
- * à faire pour tous les id de <fieldset> concernés !
- */
-.mform fieldset#id_category_1.collapsed legend a.fheader {
+/* tricherie pour "déplier" les champs supplémentaires des formulaires d'inscription */
+#page-login-signup .mform fieldset.collapsed legend a.fheader {
     background: rgba(0, 0, 0, 0) url("/moodle/theme/image.php/adaptable/core/1459517124/t/expanded") no-repeat scroll 2px center;
 }
-.jsenabled .mform fieldset#id_category_1.collapsed .fcontainer {
+#page-login-signup.jsenabled .mform fieldset.collapsed .fcontainer {
     display: block;
 }
 
