@@ -1539,7 +1539,7 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
      * @return string
      */
     protected function coursecat_coursebox(coursecat_helper $chelper, $course, $additionalclasses = '') {
-        global $CFG, $OUTPUT, $PAGE;
+        global $CFG, $OUTPUT, $PAGE, $DB;
         $type = theme_adaptable_get_setting('frontpagerenderer');
         if ($type == 3 || $OUTPUT->body_id() != 'page-site-index') {
             return parent::coursecat_coursebox($chelper, $course, $additionalclasses = '');
@@ -1573,12 +1573,119 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
         if ($chelper->get_show_courses() < self::COURSECAT_SHOW_COURSES_EXPANDED) {
             $classes .= ' collapsed';
         }
+
+		// ptites variables à papa
+        $urlCours = new moodle_url('/course/view.php', array('id' => $course->id));
+        $nomCours = $chelper->get_course_formatted_name($course);
+		$dateOuverture = $course->startdate;
+		$dateOuvertureFormatee = strftime("%d %b %Y", $dateOuverture);
+		// catégorie du cours
+		$category = $DB->get_record('course_categories',array('id'=>$course->category));
+		$nomCategorie = $category->name;
+		// caractéristiques de l'auto-inscription
+		$selfEnrol = $DB->get_record('enrol', array('enrol' => 'self', 'courseid' => $course->id, 'status' => 0), '*', $strictness=IGNORE_MISSING);
+		$inscriptionOuverte = false;
+		$dateOuvertureInscription = null;
+		$dateOuvertureInscriptionFormatee = null;
+		if ($selfEnrol !== false) {
+			if ($selfEnrol->enrolstartdate != 0) {
+				$dateOuvertureInscription = $selfEnrol->enrolstartdate;
+				$dateOuvertureInscriptionFormatee =  strftime("%d %b %Y", $dateOuvertureInscription);
+				if ($dateOuvertureInscription <= time()) {
+					$inscriptionOuverte = true;
+				}
+				// @TODO gérer la date de fin des inscriptions
+			} else {
+				$inscriptionOuverte = true;
+			}
+		}
+		//var_dump($selfEnrol);
+
+        // récupération des images - pas garanti que ça marche s'il y en a plus d'une
+        $contentimages = '';
+        foreach ($course->get_course_overviewfiles() as $file) {
+            $isimage = $file->is_valid_image();
+            $url = file_encode_url("$CFG->wwwroot/pluginfile.php",
+                    '/'. $file->get_contextid(). '/'. $file->get_component(). '/'.
+                    $file->get_filearea(). $file->get_filepath(). $file->get_filename(), !$isimage);
+            if ($isimage) {
+                if ($type != 1) { // un cours, c'est type == 2 si je comprends bien
+                    $contentimages .= "<div class='cimbox' style='background: url($url) no-repeat center center; background-size: contain;'></div>";
+                }
+            }
+        }
+        if (strlen($contentimages) == 0 && $type == 2) {
+            // Default image
+            $url = $PAGE->theme->setting_file_url('frontpagerendererdefaultimage', 'frontpagerendererdefaultimage');
+            $contentimages .= "<div class='cimbox' style='background: url($url) no-repeat center center;
+                                                          background-size: contain;'></div>";
+        }
+
+		$bouton = '';
+		$bouton .= '<a class="btn btn-info btn-sm coursebtn submit bouton-cours" href="' . $urlCours . '">';
+		$bouton .= '';
+		$bouton .= get_string('course');
+		//$bouton .= '<span class="fa fa-chevron-right"></span>';
+		$bouton .= '</a>';
+
+		// ch*e des tuiles, Micheline !
+		$content .= '<div class="tuile-cours span4">';
+
+		$content .= '<a href="' . $urlCours . '">';
+		$content .= '<div class="tuile-cours-interieur">';
+		$content .= $contentimages;
+		$content .= '<h3 class="titre-cours">';
+		$content .= $nomCours;
+		$content .= '</h3>';
+		$content .= $bouton;
+		$content .= '';
+		$content .= '</div>'; // fin tuile-interieur
+		$content .= '</a>';
+
+		$content .= '<a href="' . $urlCours . '">';
+		$content .= '<div class="tuile-arriere">';
+		$content .= '<div class="tuile-arriere-interieur">';
+		$content .= '<div class="resume-cours">';
+		$content .= 'Apprendre à connaître les plantes';
+		$content .= '</div>'; // fin resume-cours
+		$content .= '<div class="categorie-cours">';
+		// $content .= '<i class="fa fa-graduation-cap"></i>';
+		$content .= '<i class="fa fa-university"></i>';
+		$content .= $nomCategorie;
+		$content .= '</div>'; // fin categorie-cours
+		$content .= '<div title="Date d\'ouverture du cours" class="date-ouverture">';
+		$content .= '<i class="fa fa-calendar-check-o"></i>';
+		$content .= $dateOuvertureFormatee;
+		$content .= '';
+		$content .= '</div>'; // fin date-inscription
+		$content .= '<div title="Date d\'ouverture des inscriptions" class="statut-inscription';
+		if ($inscriptionOuverte) {
+			$content .= ' inscription-ouverte';
+		} else {
+			$content .= ' inscription-fermee';
+		}
+		$content .= '">';
+		$content .= '<i class="fa fa-sign-in"></i>';
+		if ($inscriptionOuverte) {
+			$content .= 'Inscriptions ouvertes';
+		} else {
+			$content .= $dateOuvertureInscriptionFormatee;
+		}
+		$content .= '';
+		$content .= '</div>'; // fin statut-inscription
+		$content .= '</div>'; // fin tuile-arriere-interieur
+		$content .= '</div>'; // fin tuile-arriere
+		$content .= '</a>';
+
+		$content .= '</div>'; // fin tuile-cours
+
         // New to show blocks John.
+		/*
         $spanclass = "span4";
+        $urlb = new moodle_url('/course/view.php', array('id' => $course->id));
+        $content .= html_writer::start_tag('a', array('id' => 'couscous-au-poulet-1', 'href' => $urlb));
         $content .= html_writer::start_tag('div',
                                             array('class' => ' '.$spanclass.' panel panel-default coursebox '.$additionalcss));
-        $urlb = new moodle_url('/course/view.php', array('id' => $course->id));
-        $content .= "<a href='$urlb'>";
         $coursename = $chelper->get_course_formatted_name($course);
         $content .= html_writer::start_tag('div', array('class' => 'panel-heading'));
         if ($type == 1) {
@@ -1632,6 +1739,9 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
         }
 
         $content .= html_writer::end_tag('div'); // End .panel.
+        $content .= html_writer::end_tag('a');
+		*/
+
         return $content;
     }
 
@@ -1715,28 +1825,32 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
         $content .= $contentimages. $contentfiles;
 
         if ($type == 2) {
-            $content .= $this->coursecat_coursebox_enrolmenticons($course);
+			// on vire les icônes des méthodes d'inscription
+            //$content .= $this->coursecat_coursebox_enrolmenticons($course);
         }
 
         if ($type == 2) {
             $content .= html_writer::start_tag('div', array('class' => 'coursebox-content'));
             $coursename = $chelper->get_course_formatted_name($course);
-            $content .= html_writer::tag('h3', html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
-                    $coursename, array('class' => $course->visible ? '' : 'dimmed', 'title' => $coursename)));
+            /*$content .= html_writer::tag('h3', html_writer::link(new moodle_url('/course/view.php', array('id' => $course->id)),
+                    $coursename, array('class' => $course->visible ? '' : 'dimmed', 'title' => $coursename)));*/
+			$content .= '<h3 class="tuile-titre-cours">' . $coursename . '</h3>';
         }
         $content .= html_writer::start_tag('div', array('class' => 'summary'));
-        if (ISSET($coursename)) {
+        /*if (ISSET($coursename)) {
             $content .= html_writer::tag('p', html_writer::tag('b', $coursename));
         }
         // Display course summary.
+		// pas de sommaire du cours
         if ($course->has_summary()) {
             $summs = $chelper->get_course_formatted_summary($course, array('overflowdiv' => false, 'noclean' => true,
                     'para' => false));
             $summs = strip_tags($summs);
             $truncsum = mb_strimwidth($summs, 0, 70, "...");
             $content .= html_writer::tag('span', $truncsum, array('title' => $summs));
-        }
-        $coursecontacts = theme_adaptable_get_setting('tilesshowcontacts');
+        }*/
+		// pas de "contacts" non plus (vasistas ?)
+        /*$coursecontacts = theme_adaptable_get_setting('tilesshowcontacts');
         if ($coursecontacts) {
             $coursecontacttitle = theme_adaptable_get_setting('tilescontactstitle');
             // Display course contacts. See course_in_list::get_course_contacts().
@@ -1752,7 +1866,7 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
                 }
                 $content .= html_writer::end_tag('ul'); // Teachers.
             }
-        }
+        }*/
         $content .= html_writer::end_tag('div'); // Summary.
 
         // Display course category if necessary (for example in search results).

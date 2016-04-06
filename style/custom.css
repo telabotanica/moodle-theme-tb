@@ -173,3 +173,66 @@ body {
 #above-header {
     height: 32px;
 }
+
+.tuile-arriere {
+    /*display: none;*/
+    opacity: 0;
+    transition: opacity 0.3s;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*padding: 10px;*/
+    background-color: #ffffff;
+    /*border: solid red 1px;*/
+    width: 100%;
+    height: 190px; /* height de .cimbox + padding de .tuile-cours + 5 (pour le plaisir) */
+}
+
+.tuile-cours:hover .tuile-arriere {
+    /*display: block;*/
+    opacity: 0.87;
+}
+
+a:hover .tuile-arriere * {
+    text-decoration: none;
+}
+
+.tuile-arriere-interieur {
+    padding: 10px;
+    padding-left: 20px;
+}
+.tuile-arriere-interieur > div {
+    margin-bottom: 10px;
+}
+.tuile-arriere-interieur > div.resume-cours {
+    margin-bottom: 25px;
+    color: #333;
+}
+.tuile-arriere-interieur > div.categorie-cours {
+    color: #00778a;
+}
+.tuile-arriere-interieur > div.date-ouverture {
+    color: #333;
+}
+.tuile-arriere-interieur > div.statut-inscription.inscription-ouverte {
+    color: green;
+}
+.tuile-arriere-interieur > div.statut-inscription.inscription-fermee {
+    color: red;
+}
+.tuile-arriere-interieur > div > i {
+    margin-right: 8px;
+}
+
+.bouton-cours {
+    width: 80%; /* espèce de span11 artisanal, sans les inconvénients */
+    float: none !important;
+}
+
+h3.titre-cours {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.2em;
+    margin-bottom: 0;
+}
