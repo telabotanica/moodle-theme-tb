@@ -1579,22 +1579,23 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
         $nomCours = $chelper->get_course_formatted_name($course);
 		$dateOuverture = $course->startdate;
 		$dateOuvertureFormatee = strftime("%d %b %Y", $dateOuverture);
+		$coursOuvert = ($dateOuverture <= time());
 		// catégorie du cours
 		$category = $DB->get_record('course_categories',array('id'=>$course->category));
 		$nomCategorie = $category->name;
 		// caractéristiques de l'auto-inscription
 		$selfEnrol = $DB->get_record('enrol', array('enrol' => 'self', 'courseid' => $course->id, 'status' => 0), '*', $strictness=IGNORE_MISSING);
 		$inscriptionOuverte = false;
+		$inscriptionTerminee = false;
 		$dateOuvertureInscription = null;
 		$dateOuvertureInscriptionFormatee = null;
 		if ($selfEnrol !== false) {
 			if ($selfEnrol->enrolstartdate != 0) {
 				$dateOuvertureInscription = $selfEnrol->enrolstartdate;
 				$dateOuvertureInscriptionFormatee =  strftime("%d %b %Y", $dateOuvertureInscription);
-				if ($dateOuvertureInscription <= time()) {
-					$inscriptionOuverte = true;
-				}
-				// @TODO gérer la date de fin des inscriptions
+				$inscriptionOuverte = ($dateOuvertureInscription <= time());
+			} elseif ($selfEnrol->enrolenddate != 0) {
+				$inscriptionTerminee = ($selfEnrol->enrolenddate <= time());
 			} else {
 				$inscriptionOuverte = true;
 			}
@@ -1653,21 +1654,30 @@ class theme_adaptable_core_course_renderer extends core_course_renderer {
 		$content .= '<i class="fa fa-university"></i>';
 		$content .= $nomCategorie;
 		$content .= '</div>'; // fin categorie-cours
-		$content .= '<div title="Date d\'ouverture du cours" class="date-ouverture">';
+		$content .= '<div title="Date d\'ouverture du cours" class="date-ouverture';
+		if ($coursOuvert) {
+			$content .= ' cours-ouvert';
+		}
+		$content .= '">';
 		$content .= '<i class="fa fa-calendar-check-o"></i>';
-		$content .= $dateOuvertureFormatee;
-		$content .= '';
+		if ($coursOuvert) {
+			$content .= 'Cours ouvert';
+		} else {
+			$content .= $dateOuvertureFormatee;
+		}
 		$content .= '</div>'; // fin date-inscription
 		$content .= '<div title="Date d\'ouverture des inscriptions" class="statut-inscription';
 		if ($inscriptionOuverte) {
 			$content .= ' inscription-ouverte';
-		} else {
+		} elseif ($inscriptionTerminee) {
 			$content .= ' inscription-fermee';
 		}
 		$content .= '">';
 		$content .= '<i class="fa fa-sign-in"></i>';
 		if ($inscriptionOuverte) {
 			$content .= 'Inscriptions ouvertes';
+		} elseif ($inscriptionTerminee) {
+			$content .= 'Inscriptions terminées';
 		} else {
 			$content .= $dateOuvertureInscriptionFormatee;
 		}

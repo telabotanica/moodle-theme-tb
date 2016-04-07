@@ -173,6 +173,9 @@ body {
 #above-header {
     height: 32px;
 }
+.dropdown.secondone {
+    margin-top: 5px;
+}
 
 .tuile-cours {
     border: 5px solid #FFF;
@@ -229,13 +232,15 @@ a:hover .tuile-arriere * {
 .tuile-arriere-interieur > div.categorie-cours {
     color: #00778a;
 }
-.tuile-arriere-interieur > div.date-ouverture {
+.tuile-arriere-interieur > div.date-ouverture,
+.tuile-arriere-interieur > div.statut-inscription {
     color: #333;
 }
 .tuile-arriere-interieur > div.date-ouverture.cours-ouvert,
 .tuile-arriere-interieur > div.statut-inscription.inscription-ouverte {
     color: green;
 }
+.tuile-arriere-interieur > div.date-ouverture.cours-ferme,
 .tuile-arriere-interieur > div.statut-inscription.inscription-fermee {
     color: red;
 }
