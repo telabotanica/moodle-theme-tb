@@ -162,9 +162,11 @@ body {
 }
 
 /* tricherie pour "déplier" les champs supplémentaires des formulaires d'inscription */
+#page-user-edit .mform fieldset.collapsed legend a.fheader,
 #page-login-signup .mform fieldset.collapsed legend a.fheader {
     background: rgba(0, 0, 0, 0) url("/moodle/theme/image.php/adaptable/core/1459517124/t/expanded") no-repeat scroll 2px center;
 }
+#page-user-edit.jsenabled .mform fieldset.collapsed .fcontainer,
 #page-login-signup.jsenabled .mform fieldset.collapsed .fcontainer {
     display: block;
 }
