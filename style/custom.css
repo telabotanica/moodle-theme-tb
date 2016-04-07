@@ -232,6 +232,7 @@ a:hover .tuile-arriere * {
 .tuile-arriere-interieur > div.date-ouverture {
     color: #333;
 }
+.tuile-arriere-interieur > div.date-ouverture.cours-ouvert,
 .tuile-arriere-interieur > div.statut-inscription.inscription-ouverte {
     color: green;
 }
