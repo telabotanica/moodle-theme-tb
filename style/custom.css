@@ -267,3 +267,74 @@ h3.titre-cours {
 #page-enrol-index #mform1 {
 	display: none;
 }
+
+#page-login-index .subcontent.guestsub {
+	display: none;
+}
+
+/*.loginbox.twocolumns .loginpanel, .loginbox.twocolumns .signuppanel {
+	float: none;
+}*/
+
+.page-login-perso {
+	/*border: solid blue 2px;*/
+	max-width: 720px;
+	margin: auto;
+}
+.page-login-perso .logo-tb {
+	margin-top: -2px;
+}
+.page-login-perso #login .loginform {
+	margin: auto;
+	margin-top: 0px;
+	max-width: 370px;
+}
+.page-login-perso #login .loginactions {
+	margin: auto;
+	margin-top: 0px;
+	max-width: 370px;
+	text-align: right;
+}
+.page-login-perso .loginbox .subcontent {
+	margin: 0;
+}
+.page-login-perso .loginsub .loginform {
+	text-align: center;
+}
+.page-login-perso .loginsub {
+	padding-top: 0;
+}
+.page-login-perso .loginsub .loginform .form-input input {
+	width: 96%;
+}
+.page-login-perso .loginsub .loginform .form-input {
+	float: none;
+	width: auto;
+	width: 100%;
+}
+.page-login-perso .rememberpass {
+	display: inline-block;
+	float: left;
+	margin-top: 7px;
+}
+.page-login-perso #rememberusername {
+	margin: 0;
+}
+.page-login-perso .forgetpass {
+	display: inline-block;
+	font-size: 0.8em;
+}
+.page-login-perso .loginsub .loginform .form-label {
+	float: none;
+	width: 100%;
+	text-align: center;
+}
+.page-login-perso .loginerrors {
+	margin-bottom: 15px;
+}
+.page-login-perso .signuppanel .subcontent {
+	text-align: center;
+	margin: auto;
+    max-width: 400px;
+}
+
