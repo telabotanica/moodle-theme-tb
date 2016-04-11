@@ -155,6 +155,10 @@ body {
 	border: 5px solid #FFF;
 }
 
+#themessage h4 {
+    color: white !important;
+}
+
 /* masque le message "Options d'inscription" dans le résumé du cours (pour les
  * non-inscrits) */
 #page-enrol-index h2 {
@@ -181,6 +185,9 @@ body {
 
 .tuile-cours {
     border: 5px solid #FFF;
+    /*border: 5px solid #FFF;*/
+    /*background-color: #B7E4F0;*/
+    border: 3px solid #009FB8;
     border-radius: 2px;
     display: inline-block;
     box-shadow: 0px 1px 2px #C1C1C1;
