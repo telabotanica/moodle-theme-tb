@@ -422,6 +422,7 @@ if (!empty($PAGE->theme->settings->socialset)) {
 }
 ?>
 
+<!--
 <?php
 if (empty($PAGE->theme->settings->socialset)) { ?>
         <div class="searchbox">
@@ -444,6 +445,13 @@ if (empty($PAGE->theme->settings->socialset)) { ?>
 <?php
 }
 ?>
+-->
+<div id="bouton-acces-cours">
+<?php
+	$urlAccesCours = new moodle_url('/#themessage');
+?>
+<a href="<?= $urlAccesCours ?>">Accéder aux cours</a>
+</div>
 
         <div id="course-header">
             <?php echo $OUTPUT->course_header(); ?>

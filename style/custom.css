@@ -280,6 +280,7 @@ h3.titre-cours {
 	float: none;
 }*/
 
+/* Personnalisation du formulaire de connexion */
 .page-login-perso {
 	/*border: solid blue 2px;*/
 	max-width: 720px;
@@ -342,3 +343,25 @@ h3.titre-cours {
     max-width: 400px;
 }
 
+/* bouton en haut à droite de la page d'accueil */
+#bouton-acces-cours {
+	background-color: #fff;
+	border: 1px solid #999;
+	padding: 10px;
+	position: absolute;
+	right: 47px;
+	top: 80px;
+}
+
+/* Personnalisation du profil général */
+#page-user-profile #page-navbar {
+	display: none;
+}
+
+#page-user-profile #region-main {
+	margin-top: 5px;
+}
+
+#page-user-profile .userprofile .page-context-header {
+	margin-bottom: 0;
+}
