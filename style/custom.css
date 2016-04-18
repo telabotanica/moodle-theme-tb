@@ -159,6 +159,17 @@ body {
     color: white !important;
 }
 
+/* ne pas souligner les liens sur les tuiles "marketing" */
+#marketblocks .covtiles a:hover {
+	text-decoration: none;
+}
+.span4.covtiles.first:nth-of-type(1) div:hover {
+	background-color: #00b9d6 !important;
+}
+.span4.covtiles.first:nth-of-type(2) div:hover {
+	background-color: #c0c0c0 !important;
+}
+
 /* masque le message "Options d'inscription" dans le résumé du cours (pour les
  * non-inscrits) */
 #page-enrol-index h2 {
@@ -199,6 +210,9 @@ body {
 .tuile-cours-interieur {
     width: 100%;
     text-align: center;
+}
+.tuile-cours-interieur a:hover {
+	text-decoration: none;
 }
 
 .tuile-arriere {
@@ -342,6 +356,10 @@ h3.titre-cours {
 	margin: auto;
     max-width: 400px;
 }
+/* recentrage du formulaire de login */
+#page-login-index #region-main {
+	margin: 0;
+}
 
 /* bouton en haut à droite de la page d'accueil */
 #bouton-acces-cours {
@@ -351,6 +369,12 @@ h3.titre-cours {
 	position: absolute;
 	right: 47px;
 	top: 80px;
+}
+#bouton-acces-cours:hover {
+	background-color: #f0f0ff;
+}
+#bouton-acces-cours > a:hover {
+	text-decoration: none;
 }
 
 /* Personnalisation du profil général */
@@ -364,4 +388,11 @@ h3.titre-cours {
 
 #page-user-profile .userprofile .page-context-header {
 	margin-bottom: 0;
+}
+
+/* alignement à gauche du logo en taille intermédiaire */
+@media (max-width:979px) {
+	#page-header a img {
+		margin: 0 0 10px 0;
+	}
 }
