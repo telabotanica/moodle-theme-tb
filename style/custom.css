@@ -172,7 +172,7 @@ body {
 
 /* masque le message "Options d'inscription" dans le résumé du cours (pour les
  * non-inscrits) */
-#page-enrol-index h2 {
+#page-enrol-index #region-main h2 {
     display: none;
 }
 
