@@ -149,5 +149,25 @@ M.theme_adaptable = M.theme_adaptable || {};
 M.theme_adaptable.full =  {
   init: function() {
     Y.one('body').delegate('click', onFull, '.moodlewidth');
+
+	// autocomplétion sur le champ "ville" du profil
+	YUI().use('autocomplete', 'autocomplete-highlighters', function (Y) {
+		var ac = new Y.AutoComplete({
+			inputNode: '#page-user-editadvanced #id_city',
+			resultHighlighter: 'phraseMatch',
+			minQueryLength: 3, // pour ne pas surcharger le service zone-admin, ni attendre trop longtemps
+			queryDelay: 300, // pareil
+			resultListLocator: function (response) {
+				var resultats = [];
+				for (var i=0; i < response.length; i++) {
+					resultats.push(response[i].intitule);
+				}
+				resultats = Y.Array.unique(resultats);
+				return resultats;
+			},
+			source: 'http://api.tela-botanica.org/service:eflore:0.1/osm/zone-admin/?masque={query}%&limite=20',
+			render: true
+		});
+	});
   }
 };
