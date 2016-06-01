@@ -396,3 +396,28 @@ h3.titre-cours {
 		margin: 0 0 10px 0;
 	}
 }
+
+/* icônes des activités */
+img.iconlarge {
+	width: auto;
+	height: 36px;
+}
+
+/* redesign méga-triche  */
+/*.activityinstance > #lien-activite-2 img
+{
+    display: none;
+}
+
+.activityinstance > #lien-activite-2
+{
+    background-image: url("http://mooc.tela-botanica.org/moodle-fichiers/pictogrammes/page_vid%C3%A9o.png");
+    background-position: 0 center;
+    background-repeat: no-repeat;
+    background-size: 24px auto;
+    display: inline-block;
+    height: 30px;
+    line-height: 36px;
+    padding-left: 30px;
+    vertical-align: baseline;
+}*/
