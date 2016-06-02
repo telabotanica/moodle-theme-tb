@@ -410,6 +410,13 @@ h3.titre-cours {
 	color: #55a;
 }
 
+/* augmente la taille de police du terme du glossaire (attention peut influer
+ * sur d'autre trucs)
+ */
+.moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd h1 {
+	font-size: 150%;
+}
+
 /* icônes des activités */
 img.iconlarge {
 	width: auto;
