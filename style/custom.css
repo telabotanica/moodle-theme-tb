@@ -398,7 +398,7 @@ h3.titre-cours {
 }
 
 /* glossaire */
-.glossaire-image {
+#page-mod-glossary-view .glossaire-image {
     width: 200px;
 }
 .glossaire-legende {
@@ -406,8 +406,8 @@ h3.titre-cours {
     margin-top: 5px;
 }
 .glossaire-citation {
-    font-size: 0.8em;
-	color: #606060;
+    font-size: 0.9em;
+	color: #505050;
 }
 
 /* icônes des activités */
