@@ -68,6 +68,27 @@ $string['region-side-post'] = 'Right';
 $string['region-side-pre'] = 'Left';
 $string['frnt-footer'] = 'Blocks in this area will only be visible to admin users.';
 
+$string['region-frnt-market-a'] = 'Market';
+$string['region-frnt-market-b'] = 'Market';
+$string['region-frnt-market-c'] = 'Market';
+$string['region-frnt-market-d'] = 'Market';
+$string['region-frnt-market-e'] = 'Market';
+$string['region-frnt-market-f'] = 'Market';
+$string['region-frnt-market-g'] = 'Market';
+$string['region-frnt-market-h'] = 'Market';
+$string['region-frnt-market-i'] = 'Market';
+$string['region-frnt-market-j'] = 'Market';
+$string['region-frnt-market-k'] = 'Market';
+$string['region-frnt-market-l'] = 'Market';
+$string['region-frnt-market-m'] = 'Market';
+$string['region-frnt-market-n'] = 'Market';
+$string['region-frnt-market-o'] = 'Market';
+$string['region-frnt-market-p'] = 'Market';
+$string['region-frnt-market-q'] = 'Market';
+$string['region-frnt-market-r'] = 'Market';
+$string['region-frnt-market-s'] = 'Market';
+$string['region-frnt-market-t'] = 'Market';
+
 
 // Settings page headings ******************************************.
 $string['settingsmaincolors'] = 'Main Colours';
