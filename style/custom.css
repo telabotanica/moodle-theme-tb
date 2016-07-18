@@ -2,6 +2,14 @@
 -------------------------*/
 [[setting:customcss]]
 
+/**
+ * Bricolages du thème Adaptable pour la plateforme MOOC de Tela Botanica
+ *
+ * NOTE : les règles ci-dessous s'appliquent à toute la plateforme (Moodle)
+ * Pour ne les appliquer qu'à un cours, préfixer les règles CSS par la
+ * classe correspondant à l'ID du cours. Ex: ".course-2" ou "body.course-2"
+ */
+
 /* suppression de la colonne de gauche dans la page d'inscription / resume du cours */
 #page-enrol-index.format-onetopic .generalbox .coursebox .info,
 #page-enrol-index.format-onetopic .generalbox .coursebox .content .courseimage {
@@ -423,21 +431,105 @@ img.iconlarge {
 	height: 36px;
 }
 
-/* redesign méga-triche  */
-/*.activityinstance > #lien-activite-2 img
-{
+/* suppression des icônes d'activité pour le Mooc Botanique */
+.course-2 .activityinstance .activityicon {
     display: none;
 }
 
-.activityinstance > #lien-activite-2
-{
-    background-image: url("http://mooc.tela-botanica.org/moodle-fichiers/pictogrammes/page_vid%C3%A9o.png");
-    background-position: 0 center;
-    background-repeat: no-repeat;
-    background-size: 24px auto;
-    display: inline-block;
-    height: 30px;
-    line-height: 36px;
-    padding-left: 30px;
-    vertical-align: baseline;
+/* ------------- redesign d'une section --------------- */
+#region-main {
+    padding: 0;
+}
+.section .activity .contentafterlink {
+    margin-top: 0;
+    margin-left: 20px;
+    line-height: 1.3em;
+}
+.section li.activity {
+    margin-bottom: 30px;
+}
+.section li.activity.label.modtype_label {
+    margin-bottom: 0;
+    margin-top: 60px;
+}
+/*.activityinstance {
+    margin-top: 30px;
 }*/
+
+li.activity.label.modtype_label h4.titre-section {
+    background-color: #555;
+    color: white;
+    font-weight: bold !important;
+    height: 50px;
+    line-height: 52px;
+    padding-left: 20px;
+    vertical-align: middle;
+    border: solid #bbb 1px;
+    margin-bottom: 20px;
+}
+/* rétrocompat pour éviter de refaire toutes les étiquettes de titres de chapitres */
+li.activity.label.modtype_label h4.titre-section b span {
+    color: white !important;
+}
+/* rétrocompat pour éviter de refaire ts les pictogrammes dans les étiquettes */
+li.activity .contentafterlink img.img-responsive {
+    margin: 0 0.5em 0 0 !important;
+}
+.section .activity .activityinstance {
+    padding-left: 20px;
+    padding-right: 25px;
+    background-color: #e5e5e5;
+    border: solid 1px #ddd;
+    height: 36px;
+    line-height: 38px;
+    margin-bottom: 5px;
+    min-width: 0;
+}
+
+
+/* boutons de navigation entre sections en bas de la page */
+.section-navigation.mdl-bottom .mdl-right,
+.section-navigation.mdl-bottom .mdl-left {
+    border: solid 1px #ddd;
+    background-color: #f5f5f5;
+    height: 36px;
+    line-height: 38px;
+    padding: 0 15px;
+}
+.course-content .single-section .section-navigation {
+    padding: 0;
+    margin-bottom: 0;
+}
+.section-navigation.mdl-bottom .mdl-right a,
+.section-navigation.mdl-bottom .mdl-left a,
+.section-navigation.mdl-bottom .mdl-right a:visited,
+.section-navigation.mdl-bottom .mdl-left a:visited {
+    color: #009688;
+}
+/* remplacement des flèches crados */ 
+.section-navigation.mdl-bottom .mdl-left .larrow {
+    display: none;
+}
+.section-navigation.mdl-bottom .mdl-left a::before {
+    content: "< ";
+}
+.section-navigation.mdl-bottom .mdl-right .rarrow {
+    display: none;
+}
+.section-navigation.mdl-bottom .mdl-right a::after {
+    content: " >";
+}
+
+/* boutons de navigation entre activités en bas de la page */
+#navbuttons {
+    float: none;
+    width: 100;
+}
+#navbuttons .navbuttontext.prec input[type="submit"] {
+    margin: 0;
+}
+#navbuttons .navbuttontext.next {
+    float: right;
+}
+
+/* fin modifs */
