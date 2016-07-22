@@ -532,4 +532,16 @@ li.activity .contentafterlink img.img-responsive {
     float: right;
 }
 
+/* hack cracra pour la légende des mots-croises - !!! à remplacer par le bon ID de module !!! */
+#module-164 {
+	margin-bottom: 30px;
+	margin-left: 10px;
+	margin-top: -30px;
+}
+
+/* carrousel de la page d'accueil */
+#main-slider ul.slides a {
+    cursor: default;
+}
+
 /* fin modifs */
