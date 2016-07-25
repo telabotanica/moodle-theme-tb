@@ -418,6 +418,11 @@ h3.titre-cours {
 	color: #55a;
 }
 
+/* images du glossaire dans le jeu "mots croisés" */
+#page-mod-game-view .glossaire-image {
+	max-width: 400px;
+}
+
 /* augmente la taille de police du terme du glossaire (attention peut influer
  * sur d'autre trucs)
  */
