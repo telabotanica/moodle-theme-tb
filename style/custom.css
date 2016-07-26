@@ -422,6 +422,9 @@ h3.titre-cours {
 #page-mod-game-view .glossaire-image {
 	max-width: 400px;
 }
+#page-mod-game-view #wordclue .glossaire-image {
+	max-width: 100%;
+}
 
 /* augmente la taille de police du terme du glossaire (attention peut influer
  * sur d'autre trucs)
