@@ -573,7 +573,8 @@ li#module-336.activity.label.modtype_label {
 
 /* décoration de certains liens comme des boutons "submit" (homogénéité) - !!! à remplacer par le bon ID de module !!! */
 /*body.cmid-23 #page-content div.box.generalbox.boxaligncenter.boxwidthwide {*/
-body.cmid-23 #region-main a[href*="mod/questionnaire/complete.php?id=23"] {
+body.cmid-23 #region-main a[href*="mod/questionnaire/complete.php?id=23"],
+body#page-mod-quiz-review.course-2 div.submitbtns a[href*="mod/quiz/view.php"] {
 	background: #00695c none repeat scroll 0 0 / 100% 200%;
 	border-radius: 1px;
 	box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.5) inset;
