@@ -531,9 +531,15 @@ li.activity .contentafterlink img.img-responsive {
 /* boutons de navigation entre activités en bas de la page */
 #navbuttons {
     float: none;
-    width: 100;
+    width: 100%;
 }
-#navbuttons .navbuttontext.prec input[type="submit"] {
+#navbuttons input[type="submit"] {
+    border: solid 1px #ddd;
+    background-color: #f5f5f5;
+	color: #009688 !important;
+	box-shadow: none;
+}
+#navbuttons .navbuttontext.prev input[type="submit"] {
     margin: 0;
 }
 #navbuttons .navbuttontext.next {
@@ -541,10 +547,50 @@ li.activity .contentafterlink img.img-responsive {
 }
 
 /* hack cracra pour la légende des mots-croises - !!! à remplacer par le bon ID de module !!! */
-#module-164 {
+body.course-2 #module-164 {
 	margin-bottom: 30px;
 	margin-left: 10px;
 	margin-top: -30px;
+}
+
+/* hack cracra pour le questionnaire préliminaire - !!! à remplacer par le bon ID de module !!! */
+body.course-2 #module-23 .activityinstance {
+	padding: 10px 20px;
+	background-color: #4FAE39;
+}
+body.course-2 #module-23 .activityinstance a:hover,
+body.course-2 #module-23 .activityinstance a:active {
+	color: white;
+}
+body.course-2 #module-23 .activityinstance .instancename {
+	color: white;
+	font-weight: bold;
+}
+/* hack cracra pour la marge de l'étiquette - !!! à remplacer par le bon ID de module !!! */
+li#module-336.activity.label.modtype_label {
+	margin-top: 0;
+}
+
+/* décoration de certains liens comme des boutons "submit" (homogénéité) - !!! à remplacer par le bon ID de module !!! */
+/*body.cmid-23 #page-content div.box.generalbox.boxaligncenter.boxwidthwide {*/
+body.cmid-23 #region-main a[href*="mod/questionnaire/complete.php?id=23"] {
+	background: #00695c none repeat scroll 0 0 / 100% 200%;
+	border-radius: 1px;
+	box-shadow: 0 -2px 0 0 rgba(0, 0, 0, 0.5) inset;
+	cursor: pointer;
+	padding: 8px 15px;
+	display: block;
+	margin-top: 10px;
+	width: -moz-fit-content;
+	width: -webkit-fit-content;
+	width: fit-content;
+	font-size: 90%;
+	color: #fff !important;
+}
+
+/* effacement des liens "myreport" pour le questionnaire préliminaire !!! */
+body.course-2 a[href*="mod/questionnaire/myreport.php?id=23"] {
+	display: none;
 }
 
 /* carrousel de la page d'accueil */
