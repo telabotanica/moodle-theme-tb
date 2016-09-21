@@ -157,9 +157,14 @@ M.theme_adaptable.full =  {
 		if (inscriptionVille) {
 			champVille = inscriptionVille;
 		} else {
-			var editionVille = Y.one('#page-user-editadvanced #id_city');
-			if (editionVille) {
-				champVille = editionVille;
+			var editionVilleAv = Y.one('#page-user-editadvanced #id_city');
+			if (editionVilleAv) {
+				champVille = editionVilleAv;
+			} else {
+				var editionVille = Y.one('#page-user-edit #id_city');
+				if (editionVille) {
+					champVille = editionVille;
+				}
 			}
 		}
 		if (champVille != null) {
